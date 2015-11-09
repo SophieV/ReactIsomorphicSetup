@@ -4,23 +4,19 @@
 var React = require('react/addons');
 var TodoItem = require('../common/components/todo-item.jsx');
 
-var renderedComponent = React.renderToString(
-  <TodoItem done={true} name={'Changing this value server side'}/>
-);
-
-
-
 /* ----------
- * Injecting the rendered component in the Handlebars template
+ * Injecting the rendered component in the Jade template
  */
-var Handlebars = require('jade');
+var jade = require('jade');
 var fs = require('fs');
 
 var fileData = fs.readFileSync(__dirname + '/templates/layout.jade').toString();
-var layoutTemplate = Handlebars.compile(fileData);
+var layoutTemplate = jade.compile(fileData);
 
 var renderedLayout = layoutTemplate({
-  content: renderedComponent
+  content: React.renderToString(
+    <TodoItem done={true} name={'Changing this value server side'}/>
+  )
 });
 
 
