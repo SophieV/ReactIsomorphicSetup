@@ -1,0 +1,22 @@
+{
+  "name": "server-side-react",
+  "private": true,
+  "version": "1.1.0",
+  "main": "./server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "./node_modules/.bin/browserify browser/index.js -d -t [ babelify --presets [ react ] ] > public/js/bundle.js",
+    "server": "babel-node -- server/index.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-react": "^6.1.2",
+    "babelify": "^7.2.0",
+    "browserify": "^7.0.0"
+  },
+  "dependencies": {
+    "express": "^4.10.4",
+    "jade": "^1.11.0",
+    "react": "^0.12.1"
+  }
+}
