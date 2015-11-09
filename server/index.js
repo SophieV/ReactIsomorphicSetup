@@ -31,6 +31,10 @@ app.get('/', function(req, res) {
   res.send(renderedLayout);
 });
 
+app.get('/another', function(req, res) {
+  res.json('this route is not supported');
+});
+
 // NOTE: This route is last since we want to match the dynamic routes above
 // first before attempting to match a static resource (js/css/etc)
 app.use(express.static('./public'));
